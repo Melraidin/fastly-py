@@ -34,6 +34,15 @@ class API(object):
     def domain(self, service_id, version, name):
         return Domain.find(self.conn, service_id=service_id, version=version, name=name)
 
+    def dictionary(self, service_id, version, name):
+        return Dictionary.find(self.conn, service_id=service_id, version=version, name=name)
+
+    def dictionary_create(self, service_id, version, name):
+        return Dictionary.create(self.conn, service_id=service_id, version=version, name=name)
+
+    def dictionary_item(self, service_id, version, dictionary_id, key):
+        return DictionaryItem.find(self.conn, service_id=service_id, version=version, dictionary_id=dictionary_id, key=key)
+
     def backend(self, service_id, version, name):
         return Backend.find(self.conn, service_id=service_id, version=version, name=name)
 
