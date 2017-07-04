@@ -110,6 +110,13 @@ class Dictionary(Model):
             body=urlencode({"name": name}))
         return data
 
+    @classmethod
+    def list(cls, conn, service_id, version):
+        resp, data = cls.query(
+            conn, cls.COLLECTION_PATTERN, "GET",
+            service_id=service_id, version=version)
+        return data
+
     def items(self):
         resp, data = self.__class__.query(
             self.conn,

@@ -40,6 +40,9 @@ class API(object):
     def dictionary_create(self, service_id, version, name):
         return Dictionary.create(self.conn, service_id=service_id, version=version, name=name)
 
+    def dictionary_list(self, service_id, version):
+        return Dictionary.list(self.conn, service_id=service_id, version=version)
+
     def dictionary_item(self, service_id, version, dictionary_id, key):
         return DictionaryItem.find(self.conn, service_id=service_id, version=version, dictionary_id=dictionary_id, key=key)
 
